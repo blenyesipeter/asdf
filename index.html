@@ -1,94 +1,136 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Night Mode Playground</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #e2e8f0;
-    }
-
-    header {
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      opacity: 0.7;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    button {
-      background: #38bdf8;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      color: #0f172a;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      opacity: 0.6;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GitHub Előnyei</title>
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#0f172a,#1d4ed8,#06b6d4);
+background-size:400% 400%;
+animation:bgmove 15s infinite;
+color:white;
+}
+@keyframes bgmove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+header{
+padding:70px 20px;
+text-align:center;
+}
+header h1{
+font-size:3rem;
+margin-bottom:15px;
+}
+header p{
+font-size:1.2rem;
+opacity:.9;
+}
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+.card{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:20px;
+box-shadow:0 8px 30px rgba(0,0,0,.3);
+transition:.3s;
+}
+.card:hover{
+transform:translateY(-8px) scale(1.02);
+}
+.card h2{
+margin-top:0;
+}
+button{
+background:#38bdf8;
+border:none;
+padding:12px 22px;
+border-radius:12px;
+font-weight:bold;
+cursor:pointer;
+}
+#fact{
+margin-top:20px;
+font-size:1.1rem;
+}
+footer{
+text-align:center;
+padding:40px;
+opacity:.8;
+}
+</style>
 </head>
 <body>
 
 <header>
-  <h1>Welcome to your random website</h1>
-  <p>Mert miért ne? Ez is egy projekt.</p>
+<h1>Miért jó a GitHub?</h1>
+<p>Nem csak kódtemető. Meglepő, tudom.</p>
+<button onclick="newFact()">Random GitHub tény</button>
+<p id="fact">Kattints egy random gondolathoz.</p>
 </header>
 
 <div class="container">
-  <div class="card">
-    <h2>Random gondolat</h2>
-    <p id="thought">Kattints a gombra és kapsz valami mély (vagy nem) gondolatot.</p>
-    <button onclick="newThought()">Adj egy gondolatot</button>
-  </div>
+<div class="card">
+<h2>Verziókezelés</h2>
+<p>A GitHub megőrzi a módosításokat, így vissza lehet menni korábbi verziókra ha valamit elrontasz. Amit úgyis el fogsz.</p>
+</div>
 
-  <div class="card">
-    <h2>Motiváció</h2>
-    <p>Valószínűleg procrastinálsz, de legalább ezt most megcsináltad.</p>
-  </div>
+<div class="card">
+<h2>Csapatmunka</h2>
+<p>Többen dolgozhatnak ugyanazon projekten pull requestekkel, branchekkel és merge-ekkel.</p>
+</div>
 
-  <div class="card">
-    <h2>Mini játék</h2>
-    <p>Kattints, hogy növeld a pontszámod.</p>
-    <p>Pont: <span id="score">0</span></p>
-    <button onclick="addPoint()">+1 pont</button>
-  </div>
+<div class="card">
+<h2>Portfólió</h2>
+<p>Publikus repókban megmutathatod a projektjeidet. Gyakorlatilag digitális bizonyíték, hogy tudsz valamit.</p>
+</div>
+
+<div class="card">
+<h2>GitHub Pages</h2>
+<p>Ingyen hosztolhatsz statikus weboldalakat. Ez az oldal is mehet oda.</p>
+</div>
+
+<div class="card">
+<h2>Backup</h2>
+<p>Nem csak a gépeden van a projekt. Ha meghal a laptop, kisebb az egzisztenciális válság.</p>
+</div>
+
+<div class="card">
+<h2>Open Source</h2>
+<p>Mások kódját tanulhatod, hozzájárulhatsz projektekhez, és láthatod hogyan dolgoznak profik.</p>
+</div>
 </div>
 
 <footer>
-  <p>Made with minimal effort, maximum vibe.</p>
+GitHub: mert az "asztalon hagyott random mappa" nem fejlesztési stratégia.
 </footer>
+
+<script>
+const facts=[
+"A GitHub több mint 100 millió fejlesztőnek ad otthont.",
+"A commit history megmutatja ki rontotta el. Kényelmetlenül pontos.",
+"Branch nélkül fejleszteni olyan mint mentés nélkül játszani.",
+"GitHub Pages-szel ingyen publikálhatsz oldalakat.",
+"A pull request lényegében kulturált vita kód felett.",
+"A README néha jobb dokumentáció mint egy teljes kézikönyv.",
+"Ha nincs backupod, nincs projekted. Csak illúziód van."
+];
+function newFact(){
+let r=Math.floor(Math.random()*facts.length);
+document.getElementById('fact').innerText=facts[r];
+}
+</script>
+
+</body>
+</html>
